@@ -13,10 +13,10 @@
 
 ## 在线访问
 
-本项目作为 GitHub Pages 项目站部署（仓库名 = 项目名）：
+本项目已部署为 GitHub Pages 项目站：
 
-- **GitHub Pages（主站）**：`https://<你的用户名>.github.io/hollow-knight-silksong-save-editor/`
-- **国内加速镜像（jsDelivr CDN）**：`https://cdn.jsdelivr.net/gh/<你的用户名>/hollow-knight-silksong-save-editor@main/index.html`
+- **GitHub Pages（主站）**：https://347347ae-design.github.io/hollow-knight-silksong-save-editor/
+- **国内加速镜像（jsDelivr CDN）**：https://cdn.jsdelivr.net/gh/347347ae-design/hollow-knight-silksong-save-editor@main/index.html
 
 说明：`github.io` 域名走 Fastly CDN（含亚洲节点），国内一般可直接访问；若个别地区不稳定，可用上方的 jsDelivr 镜像（国内节点更稳）。为固定版本可使用发布 tag，例如 `@v1.0.0`。
 

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>空洞骑士系列 · 收藏品存档解析与修改器</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <p class="eyebrow">HALLOWNEST · PHARLOOM ARCHIVE</p>
+        <h1>收藏档案</h1>
+        <p>《空洞骑士》与《丝之歌》双存档解析 + 修改器。识别收藏、修复钢魂、修改吉欧 / 时长 / 血量。</p>
+      </div>
+      <div class="sigil">HK<br>SS</div>
+    </header>
+
+    <section class="upload" id="drop">
+      <input id="file" type="file" accept=".dat,.json">
+      <label for="file"><strong>选择或拖入 user*.dat</strong><span>自动识别游戏；所有解析与修改仅在本机完成，不会上传</span></label>
+    </section>
+
+    <div id="error" class="error" hidden></div>
+
+    <section id="dashboard" hidden>
+      <div class="summary">
+        <div><span>游戏</span><b id="game">—</b></div>
+        <div><span>已识别</span><b id="total">—</b></div>
+        <div><span id="special-label">重点收集</span><b id="special">—</b></div>
+        <div><span>完成度</span><b id="completion">—</b></div>
+      </div>
+      <p class="hint" id="filelabel"></p>
+
+      <nav id="viewtabs">
+        <button class="active" data-view="parse">收藏解析</button>
+        <button data-view="edit">存档修改</button>
+      </nav>
+
+      <section id="parse-view">
+        <nav id="filters">
+          <button class="active" data-filter="all">全部</button>
+          <button data-filter="missing">只看未获得</button>
+          <button data-filter="owned">只看已获得</button>
+        </nav>
+        <div id="sections"></div>
+        <details id="inventory-wrap" hidden>
+          <summary>存档中的古董背包余量</summary>
+          <div id="inventory" class="inventory"></div>
+          <p class="note">背包余量不等于历史获得数：卖给里姆后数量会减少；上方逐地点判断依据世界拾取记录，因此仍会显示“已获得”。</p>
+        </details>
+      </section>
+
+      <section id="edit-view" hidden>
+        <section id="editor" class="editor">
+          <div id="preset-fields"></div>
+          <p id="preset-msg" class="note" hidden></p>
+        </section>
+
+        <section class="editor">
+          <h2>高级 · 直接编辑 JSON</h2>
+          <p class="hint">可任意改字段（如灵魂、护符、纳骨堂等）。点击“校验并应用”后会在下方重新解析。</p>
+          <textarea id="json-editor" spellcheck="false" placeholder="{ ... 存档 JSON ... }"></textarea>
+          <button type="button" id="apply-json" class="primary">校验并应用 JSON</button>
+        </section>
+
+        <section class="editor">
+          <h2>导出存档</h2>
+          <p class="hint">请先备份原档。修改结果会按原格式重新加密/保存。</p>
+          <div class="btnrow">
+            <button type="button" id="download-dat" class="primary">下载加密存档 .dat</button>
+            <button type="button" id="download-json">下载明文 .json</button>
+          </div>
+        </section>
+      </section>
+    </section>
+
+    <footer>地点链接来自空洞骑士&丝之歌中文维基（灰机 Wiki）。请先备份存档；本工具只在本机浏览器运行。</footer>
+  </main>
+  <script src="aes-js.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
